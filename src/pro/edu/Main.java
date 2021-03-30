@@ -100,6 +100,11 @@ public class Main {
         System.out.println(listInt.size());
 
 
+        //  ---------------------  Update List
+               listInt.set(10, 7); //    На 10ое место поставить число 7
+
+
+
 
 
     }
