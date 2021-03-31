@@ -32,7 +32,7 @@ public class Main {
         System.out.println(" -----------    Collections -------------------");
    ///------------------  COLLECTION -----------------------------
 
-        List<Integer> listInt = new ArrayList<>();
+        List<Integer> listInt = new ArrayList<>( );
         listInt.add(67);
         listInt.add(61);
         listInt.add(6);
@@ -55,7 +55,7 @@ public class Main {
 
         //---------------   Initialize 1
          List<Integer>  l2 = new ArrayList<>(
-                 Arrays.asList(32,21,22,41,90)
+                 Arrays.asList(32,21,22,490)
          );
 //---------------   Initialize 2
         List<Integer>  l3 =  Stream.of(1,22,21).collect(Collectors.toList());
@@ -65,6 +65,8 @@ public class Main {
         List<Integer> linkedList = new LinkedList<>();
 
         //   CRUD  create - add()      read - get()   update - =   delete - remove()
+
+
 
         listInt.clear();
 
@@ -103,10 +105,69 @@ public class Main {
         //  ---------------------  Update List
                listInt.set(10, 7); //    На 10ое место поставить число 7
 
+//--------------------   READ --------------------------------------
+
+        System.out.println("   ---  reading -----");
+
+        System.out.println(" ---  TAIL ---- ");
+
+        start = LocalDateTime.now();
+
+        for (int i = 90000; i < 100000; i++) {
+              int a = listInt.get(i);
+        }
+        finish = LocalDateTime.now();
+
+        duration = (int) ChronoUnit.MILLIS.between( start, finish);
+
+        System.out.println( "arraList "+ duration);
+
+   //----------------------------------------------------
+
+
+        start = LocalDateTime.now();
+
+        for (int i = 90000; i < 100000; i++) {
+            int a = linkedList.get(i);
+        }
+        finish = LocalDateTime.now();
+
+        duration = (int) ChronoUnit.MILLIS.between( start, finish);
+
+        System.out.println("libkedlist " + duration);
+
+   // -------------------------------
+
+        System.out.println(" ---   UPDATE  ---  ");
+
+        start = LocalDateTime.now();
+
+        for (int i = 0; i < 10000; i++) {
+            listInt.set(i, 100);
+        }
+        finish = LocalDateTime.now();
+
+        duration = (int) ChronoUnit.MILLIS.between( start, finish);
+
+        System.out.println( "arraList  update HEAD "+ duration);
 
 
 
+        start = LocalDateTime.now();
 
+        for (int i = 0; i < 10000; i++) {
+            linkedList.set(i, 100);
+        }
+        finish = LocalDateTime.now();
+
+        duration = (int) ChronoUnit.MILLIS.between( start, finish);
+
+        System.out.println( "linkedList  update  HEAD "+ duration);
+
+//  add()  - создание (create)
+//  get()  - read
+// set()   - update
+//  remove() -  delete
     }
 }
 /*
