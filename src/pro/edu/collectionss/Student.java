@@ -8,7 +8,10 @@ package pro.edu.collectionss;
 */
 
 import java.time.LocalDate;
+import java.util.Objects;
 
+
+//  POJO class
 public class Student {
     private String name;
     private LocalDate birth;
@@ -66,4 +69,22 @@ public class Student {
                 ", mark=" + mark +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return getMark() == student.getMark() && getName().equals(student.getName()) && getBirth().equals(student.getBirth()) && getGender() == student.getGender();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getBirth(), getGender(), getMark());
+    }
+
+    public boolean isAdult(){
+        return true;
+    }
+
 }

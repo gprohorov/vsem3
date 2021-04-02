@@ -168,6 +168,37 @@ public class Main {
 //  get()  - read
 // set()   - update
 //  remove() -  delete
+        // insert  add()  TO
+
+        List<Integer> list = new ArrayList<>( Arrays.asList(1,2,3,4,5,6,7,8,9,10));
+
+
+        //  create
+         list.add(11);
+         list.add(12);
+         // insert to BEGINING
+        list.add(0,13);
+        list.add(0,14);
+
+        // insert INTO THE MIIDLE
+        list.add(7, 100);
+        list.add(7, 100);
+
+        // insert TO THE END
+        list.add(13, 99);
+        list.add(13, 99);
+        // list.add(14, 99)  ==  list.add(99)
+
+
+        System.out.println(list.size());
+
+
+        for (int i = 0; i < 5 ; i++) {
+            list.add(9, 555);
+
+        }
+        System.out.println(list);
+
     }
 }
 /*
