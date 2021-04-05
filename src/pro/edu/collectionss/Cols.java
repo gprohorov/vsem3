@@ -42,11 +42,22 @@ public class Cols {
         System.out.println(troechniki);
 
         Student otlichnik = students.stream().max(Comparator.comparing(Student::getMark)).get();
+
+
+
         double avg = students.stream().mapToInt(Student::getMark).average().getAsDouble();
         System.out.println(otlichnik);
         System.out.println(avg);
         int max = students.stream().mapToInt(Student::getMark).max().getAsInt();
         int min = students.stream().mapToInt(Student::getMark).min().getAsInt();
+
+
+
+
+
+
+
+
    //--------------------------------------------------------------------------------------------
         List<IAccounting> list = new ArrayList<>(
                 Arrays.asList(
@@ -66,8 +77,31 @@ public class Cols {
           double expensive   = list.stream().mapToDouble(IAccounting::getUltimatePrice).max().getAsDouble();
           double cheap       = list.stream().mapToDouble(IAccounting::getUltimatePrice).min().getAsDouble();
 
+        IAccounting element = list.stream().filter(item -> item.getUltimatePrice() == expensive)
+                .findFirst().orElse(null);
+
+        System.out.println(element);
+        System.out.println("---------------------------------------");
+
+        double totalSumBoxed = list.stream()
+                .filter(el -> el instanceof CandyBox)
+                .mapToDouble(IAccounting::getUltimatePrice).sum();
+        double totalSumWeighed = list.stream()
+                .filter(el -> el instanceof CandyWeighed)
+                .mapToDouble(IAccounting::getUltimatePrice).sum();
+
+        if (totalSumBoxed > totalSumWeighed) {
+            System.out.println("Boxed");}
+        else {
+            System.out.println("Weighed");
+        }
+
+        boolean hasPool = true;
+        int totalSum = 0;
+
+        totalSum = totalSum + ( (hasPool) ? 100 : 0 );
 
 
-    }
 
+        }
 }
